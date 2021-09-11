@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export function useFetch(){
+export const useFetch = () => {
     const [ loading, setLoading ] = useState(false);
     const [ response, setResponse ] = useState(null);
     const [ error, setError ] = useState(null);
@@ -9,9 +9,9 @@ export function useFetch(){
         setLoading(true)
         setResponse(null)
         setError(null)
-    }, [])
+    }, []);
     
-     const handleResponse = (res) => {
+    const handleResponse = useCallback((res) => {
         if(json)
             return res
             .json()
@@ -19,20 +19,20 @@ export function useFetch(){
             .catch(setError)
 
         return setResponse(res)
-    }
+    }, []);
 
-    const turnOffLoading = () => setLoading(false)
+    const turnOffLoading = useCallback(() => setLoading(false), []);
 
-    const call = useCallback((url, options = { json: false }) = >{
-        const { json } = options
+    const call = useCallback((url, options = { json: false }) => {
+        const { json } = options;
 
-        reset()
+        reset();
 
         fetch(url, options)
             .then(handleResponse)
             .catch(setError)
-            .finally(turnOffLoading)
-    }, [])
+            .finally(turnOffLoading);
+    }, []);
 
     return {
         loading,
