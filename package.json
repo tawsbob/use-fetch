@@ -1,0 +1,24 @@
+{
+  "name": "use-fetch",
+  "version": "1.0.0",
+  "description": "a react fetch hook to work functional way",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawsbob/use-fetch.git"
+  },
+  "keywords": [
+    "react",
+    "fetch",
+    "hook"
+  ],
+  "author": "Dellean Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tawsbob/use-fetch/issues"
+  },
+  "homepage": "https://github.com/tawsbob/use-fetch#readme"
+}
