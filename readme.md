@@ -1,5 +1,5 @@
 # useFetch react hook
-this hook was developed to work with search in the react functional way
+this hook was developed to work with fetch api in the react functional way
 
 ## Usage
 
