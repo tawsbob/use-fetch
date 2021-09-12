@@ -5,13 +5,13 @@ const useFetch = ({
   responseState,
   errorState
 }: {
-  loadingState: [boolean, Dispatch<SetStateAction<boolean>>];
-  responseState: [any, Dispatch<SetStateAction<any>>];
-  errorState: [any, Dispatch<SetStateAction<any>>];
+  loadingState?: [boolean, Dispatch<SetStateAction<boolean>>];
+  responseState?: [any, Dispatch<SetStateAction<any>>];
+  errorState?: [any, Dispatch<SetStateAction<any>>];
 }) => {
-  const [loading, setLoading] = loadingState ?? useState(false);
-  const [response, setResponse] = responseState ?? useState(null);
-  const [error, setError] = errorState ?? useState(null);
+  const [loading, setLoading] = loadingState ?? useState<boolean>(false);
+  const [response, setResponse] = responseState ?? useState<any>(null);
+  const [error, setError] = errorState ?? useState<any>(null);
 
   const reset = useCallback(() => {
     setLoading(true);
