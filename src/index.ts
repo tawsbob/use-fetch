@@ -23,7 +23,7 @@ const useFetch = ({
 
   const turnOffLoading = useCallback(() => setLoading(false), []);
 
-  const call = useCallback((url: string, options: RequestInit) => {
+  const call = useCallback((url: string, options?: RequestInit) => {
     reset();
 
     fetch(url, options).then(handleResponse).catch(setError).finally(turnOffLoading);
