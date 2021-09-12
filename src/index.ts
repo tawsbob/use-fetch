@@ -19,14 +19,23 @@ const useFetch = ({
     setError(null);
   },[] );
 
-  const handleResponse = useCallback((res: any) => res.json().then(setResponse).catch(setError), []);
+  const call = useCallback(async (url: string, options?: RequestInit) => {
+    try {
+      reset();
 
-  const turnOffLoading = useCallback(() => setLoading(false), []);
+      const response =  await fetch(url, options)
+      const data = (await response.json()) ?? {};
 
-  const call = useCallback((url: string, options?: RequestInit) => {
-    reset();
+      setResponse(data);
 
-    fetch(url, options).then(handleResponse).catch(setError).finally(turnOffLoading);
+      return data;
+    } catch (error) {
+      setError(error);
+    }
+    finally{
+      setLoading(false)
+    }
+
   }, []);
 
   return {
