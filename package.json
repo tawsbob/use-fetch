@@ -1,7 +1,7 @@
 {
   "name": "use-fetch",
   "version": "1.0.0",
-  "description": "a react fetch hook to work functional way",
+  "description": "A react fetch hook to work functional way, even if you have a context.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,10 +15,22 @@
     "fetch",
     "hook"
   ],
-  "author": "Dellean Santos",
+  "contributors": [
+    {
+      "name": "Dellean Santos",
+      "email": "dellean.santos@gmail.com"
+    },
+    {
+      "name": "Julio Lima",
+      "email": "julio_flima@hotmail.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tawsbob/use-fetch/issues"
   },
-  "homepage": "https://github.com/tawsbob/use-fetch#readme"
+  "homepage": "https://github.com/tawsbob/use-fetch#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }

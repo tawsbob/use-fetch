@@ -1,31 +1,27 @@
 import { useState, useCallback } from 'react';
 
-export const useFetch = () => {
-    const [ loading, setLoading ] = useState(false);
-    const [ response, setResponse ] = useState(null);
-    const [ error, setError ] = useState(null);
-    
+export const useFetch = ({loadingState, responseState, errorState}) => {
+    const [ loading, setLoading ] = loadingState ? loadingState: useState(false);
+    const [ response, setResponse ] = responseState ? responseState: useState(null);
+    const [ error, setError ] = errorState ? errorState: useState(null);
+
     const reset = useCallback(() => {
         setLoading(true)
         setResponse(null)
         setError(null)
     }, []);
-    
+
     const handleResponse = useCallback((res) => {
-        if(json)
-            return res
+        return res
             .json()
             .then(setResponse)
             .catch(setError)
 
-        return setResponse(res)
     }, []);
 
     const turnOffLoading = useCallback(() => setLoading(false), []);
 
     const call = useCallback((url, options = { json: false }) => {
-        const { json } = options;
-
         reset();
 
         fetch(url, options)
