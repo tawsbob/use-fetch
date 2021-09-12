@@ -1,6 +1,6 @@
 {
   "name": "use-fetching",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A react fetch hook to work functional way, even if you have a context.",
   "main": "index.js",
   "scripts": {
