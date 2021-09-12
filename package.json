@@ -2,7 +2,8 @@
   "name": "use-fetching",
   "version": "1.0.9",
   "description": "A react fetch hook to work functional way, even if you have a context.",
-  "main": "src/index.ts",
+  "main": "src/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tawsbob/use-fetch.git"
