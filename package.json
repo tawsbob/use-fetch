@@ -2,7 +2,7 @@
   "name": "use-fetching",
   "version": "1.0.4",
   "description": "A react fetch hook to work functional way, even if you have a context.",
-  "main": "/build/src/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "eject": "react-scripts eject"
