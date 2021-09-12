@@ -4,6 +4,7 @@ export const useFetch = ({loadingState, responseState, errorState}) => {
     const [ loading, setLoading ] = loadingState ? loadingState: useState(false);
     const [ response, setResponse ] = responseState ? responseState: useState(null);
     const [ error, setError ] = errorState ? errorState: useState(null);
+    const [ options, setError ] = errorState ? errorState: useState(null);
 
     const reset = useCallback(() => {
         setLoading(true)

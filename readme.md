@@ -1,5 +1,16 @@
-# useFetch react hook
-this hook was developed to work with fetch api in the react functional way
+# use-fetching
+Whis hook was developed to work with fetch api in the react functional way, even if you have a context.
+
+## Installation
+
+### from npm
+```bash
+npm install use-fetching
+```
+or
+```bash
+yarn add use-fetching
+```
 
 ## Usage
 
@@ -8,10 +19,10 @@ this hook was developed to work with fetch api in the react functional way
 function MyComponent(){
 
      const { 
-            loading,    //  boolean =>  to control loading instate in your component
-            response,   // fetch response object
-            error,      // fetch error object
-            call        // function to call( url, options = {} ) == fetch(url, options) 
+            loading,    // Boolean to control loading instate in your component.
+            response,   // Fetch response object json.
+            error,      // Fetch error object.
+            call        // Function to call(url, options = {}) that gonna call "fetch(url, options)".
             } = useFetch()
     
 
@@ -22,12 +33,11 @@ function MyComponent(){
     useEffect(()=>{
         call(
             'https://viacep.com.br/ws/20231006/json/unicode/',
-            { json: true } // passing json true make response object to be fetch response.json() result
+            options // Not mandatory.
             )
     }, [])
 
-    return null
-    
+    // Continue your code...    
 }
 
 ```
