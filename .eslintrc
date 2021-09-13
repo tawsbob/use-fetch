@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier", "plugin:jest/recommended"],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -12,7 +12,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react-hooks", "react", "@typescript-eslint", "prettier", "jest"],
+  "plugins": ["react-hooks", "react", "@typescript-eslint", "prettier"],
   "overrides": [
     {
       "files": ["*.js", "*.jsx"],
@@ -22,7 +22,8 @@
     }
   ],
   "globals": {
-    "JSX": true
+    "JSX": true,
+    "RequestInit": true
   },
   "rules": {
     "jsx-a11y/label-has-for": 0,

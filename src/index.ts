@@ -18,7 +18,7 @@ const useFetch = (
   loading: boolean;
   response: any;
   error: any;
-  call: (url: string) => Promise<any>;
+  call: (url: string, options?: RequestInit) => Promise<any>;
 } => {
   const loadingLocalState = useState<boolean>(false);
   const responseLocalState = useState<any>(null);
@@ -29,7 +29,7 @@ const useFetch = (
   const [error, setError] = errorState ?? errorLocalState;
 
   const call = useCallback(
-    async (url: string, options: RequestInit = {}): Promise<any> => {
+    async (url: string, options?: RequestInit): Promise<any> => {
       try {
         setLoading(true);
 
