@@ -1,42 +1,53 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 
-const useFetch = ({
-  loadingState,
-  responseState,
-  errorState
-}: {
-  loadingState?: [boolean, Dispatch<SetStateAction<boolean>>];
-  responseState?: [any, Dispatch<SetStateAction<any>>];
-  errorState?: [any, Dispatch<SetStateAction<any>>];
-}) => {
-  const [loading, setLoading] = loadingState ?? useState<boolean>(false);
-  const [response, setResponse] = responseState ?? useState<any>(null);
-  const [error, setError] = errorState ?? useState<any>(null);
+const useFetch = (
+  {
+    loadingState,
+    responseState,
+    errorState
+  }: {
+    loadingState?: [boolean, Dispatch<SetStateAction<boolean>>];
+    responseState?: [any, Dispatch<SetStateAction<any>>];
+    errorState?: [any, Dispatch<SetStateAction<any>>];
+  } = {
+    loadingState: undefined,
+    responseState: undefined,
+    errorState: undefined
+  }
+): {
+  loading: boolean;
+  response: any;
+  error: any;
+  call: (url: string) => Promise<any>;
+} => {
+  const loadingLocalState = useState<boolean>(false);
+  const responseLocalState = useState<any>(null);
+  const errorLocalState = useState<any>(null);
 
-  const reset = useCallback(() => {
-    setLoading(true);
-    setResponse(null);
-    setError(null);
-  },[] );
+  const [loading, setLoading] = loadingState ?? loadingLocalState;
+  const [response, setResponse] = responseState ?? responseLocalState;
+  const [error, setError] = errorState ?? errorLocalState;
 
-  const call = useCallback(async (url: string, options?: RequestInit) => {
-    try {
-      reset();
+  const call = useCallback(
+    async (url: string, options: {} = {}): Promise<any> => {
+      try {
+        setLoading(true);
 
-      const response =  await fetch(url, options)
-      const data = (await response.json()) ?? {};
+        const response = await fetch(url, options);
+        const data = (await response.json()) ?? {};
 
-      setResponse(data);
+        setResponse(data);
 
-      return data;
-    } catch (error) {
-      setError(error);
-    }
-    finally{
-      setLoading(false)
-    }
-
-  }, []);
+        return data;
+      } catch (error) {
+        setError(error);
+        return {};
+      } finally {
+        setLoading(false);
+      }
+    },
+    [setError, setLoading, setResponse]
+  );
 
   return {
     loading,
@@ -47,4 +58,3 @@ const useFetch = ({
 };
 
 export default useFetch;
-	

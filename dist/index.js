@@ -38,42 +38,47 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var useFetch = function (_a) {
-    var loadingState = _a.loadingState, responseState = _a.responseState, errorState = _a.errorState;
-    var _b = loadingState !== null && loadingState !== void 0 ? loadingState : (0, react_1.useState)(false), loading = _b[0], setLoading = _b[1];
-    var _c = responseState !== null && responseState !== void 0 ? responseState : (0, react_1.useState)(null), response = _c[0], setResponse = _c[1];
-    var _d = errorState !== null && errorState !== void 0 ? errorState : (0, react_1.useState)(null), error = _d[0], setError = _d[1];
-    var reset = (0, react_1.useCallback)(function () {
-        setLoading(true);
-        setResponse(null);
-        setError(null);
-    }, []);
-    var call = (0, react_1.useCallback)(function (url, options) { return __awaiter(void 0, void 0, void 0, function () {
-        var response_1, data, error_1;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    _b.trys.push([0, 3, 4, 5]);
-                    reset();
-                    return [4 /*yield*/, fetch(url, options)];
-                case 1:
-                    response_1 = _b.sent();
-                    return [4 /*yield*/, response_1.json()];
-                case 2:
-                    data = (_a = (_b.sent())) !== null && _a !== void 0 ? _a : {};
-                    setResponse(data);
-                    return [2 /*return*/, data];
-                case 3:
-                    error_1 = _b.sent();
-                    setError(error_1);
-                    return [3 /*break*/, 5];
-                case 4:
-                    setLoading(false);
-                    return [7 /*endfinally*/];
-                case 5: return [2 /*return*/];
-            }
+    var _b = _a === void 0 ? {
+        loadingState: undefined,
+        responseState: undefined,
+        errorState: undefined
+    } : _a, loadingState = _b.loadingState, responseState = _b.responseState, errorState = _b.errorState;
+    var loadingLocalState = (0, react_1.useState)(false);
+    var responseLocalState = (0, react_1.useState)(null);
+    var errorLocalState = (0, react_1.useState)(null);
+    var _c = loadingState !== null && loadingState !== void 0 ? loadingState : loadingLocalState, loading = _c[0], setLoading = _c[1];
+    var _d = responseState !== null && responseState !== void 0 ? responseState : responseLocalState, response = _d[0], setResponse = _d[1];
+    var _e = errorState !== null && errorState !== void 0 ? errorState : errorLocalState, error = _e[0], setError = _e[1];
+    var call = (0, react_1.useCallback)(function (url, options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(void 0, void 0, void 0, function () {
+            var response_1, data, error_1;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 3, 4, 5]);
+                        setLoading(true);
+                        return [4 /*yield*/, fetch(url, options)];
+                    case 1:
+                        response_1 = _b.sent();
+                        return [4 /*yield*/, response_1.json()];
+                    case 2:
+                        data = (_a = (_b.sent())) !== null && _a !== void 0 ? _a : {};
+                        setResponse(data);
+                        return [2 /*return*/, data];
+                    case 3:
+                        error_1 = _b.sent();
+                        setError(error_1);
+                        return [2 /*return*/, {}];
+                    case 4:
+                        setLoading(false);
+                        return [7 /*endfinally*/];
+                    case 5: return [2 /*return*/];
+                }
+            });
         });
-    }); }, []);
+    }, [setError, setLoading, setResponse]);
     return {
         loading: loading,
         response: response,
