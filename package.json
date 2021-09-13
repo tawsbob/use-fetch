@@ -1,24 +1,64 @@
 {
-  "name": "use-fetch",
-  "version": "1.0.0",
-  "description": "a react fetch hook to work functional way",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "use-fetching",
+  "version": "1.0.13",
+  "description": "A react fetch hook to work functional way, even if you have a context.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tawsbob/use-fetch.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "keywords": [
     "react",
     "fetch",
     "hook"
   ],
-  "author": "Dellean Santos",
+  "contributors": [
+    {
+      "name": "Dellean Santos",
+      "email": "dellean.santos@gmail.com"
+    },
+    {
+      "name": "Julio Lima",
+      "email": "julio_flima@hotmail.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tawsbob/use-fetch/issues"
   },
-  "homepage": "https://github.com/tawsbob/use-fetch#readme"
+  "homepage": "https://github.com/tawsbob/use-fetch#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/plugin-transform-react-jsx": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "@types/react": "^17.0.17",
+    "@types/react-dom": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "babel-plugin-rewire": "^1.2.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-organize-imports": "^2.0.0",
+    "typescript": "^4.3.2"
+  }
 }
