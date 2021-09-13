@@ -29,7 +29,7 @@ const useFetch = (
   const [error, setError] = errorState ?? errorLocalState;
 
   const call = useCallback(
-    async (url: string, options: {} = {}): Promise<any> => {
+    async (url: string, options: RequestInit = {}): Promise<any> => {
       try {
         setLoading(true);
 
